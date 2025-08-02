@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: spring-ai-demo
+  ai:
+    alibaba:
+      dashscope:
+        api-key: ${DASHSCOPE_API_KEY}# ??????????
+        chat:
+          model: ${DASHSCOPE_MODEL:qwen-turbo} # ??????
+          temperature: 0.7
+    zhipuai:
+      api-key: ${ZHIPUAI_API_KEY}
+    openai:
+      api-key: dummy-key
