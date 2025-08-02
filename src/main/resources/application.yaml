@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-ai-demo
+    name: spring-ai-smart-qa
   ai:
     alibaba:
       dashscope:
