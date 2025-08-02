@@ -4,7 +4,7 @@ spring:
   ai:
     alibaba:
       dashscope:
-        api-key: ${DASHSCOPE_API_KEY}# ??????????
+        api-key: ${DASHSCOPE_API_KEY}
         chat:
           model: ${DASHSCOPE_MODEL:qwen-turbo} # ??????
           temperature: 0.7

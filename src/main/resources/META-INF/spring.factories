@@ -1,0 +1,2 @@
+
+org.springframework.context.ApplicationContextInitializer=spring.ai.example.smart.qa.core.EnvApplicationContextInitializer
