@@ -12,3 +12,15 @@ spring:
       api-key: ${ZHIPUAI_API_KEY}
     openai:
       api-key: dummy-key
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
