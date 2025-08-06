@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import spring.ai.example.smart.qa.client.AlibabaDashScopeChatModel;
+import spring.ai.example.smart.qa.service.AlibabaAIService;
 
 import java.util.List;
 
@@ -22,6 +23,9 @@ public class HelloAIController {
     private final VectorStore vectorStore;
 
     private final ZhiPuAiEmbeddingModel embeddingModel;
+
+    @Resource
+    private AlibabaAIService alibabaAIService;
 
     public HelloAIController(ZhiPuAiChatModel chatModel,VectorStore vectorStore,ZhiPuAiEmbeddingModel embeddingModel) {
         this.chatModel = chatModel;
@@ -51,5 +55,10 @@ public class HelloAIController {
     public List<Document> search(@RequestParam String query) {
 //        float[] embed = embeddingModel.embed(query);
         return vectorStore.similaritySearch(query);
+    }
+
+    @GetMapping("/alibaba/query")
+    public String alibabaRag(@RequestParam String query){
+        return alibabaAIService.generateResponse(query);
     }
 }

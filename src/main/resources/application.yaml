@@ -6,12 +6,31 @@ spring:
       dashscope:
         api-key: ${DASHSCOPE_API_KEY}
         chat:
-          model: ${DASHSCOPE_MODEL:qwen-turbo} # ??????
+          model: ${DASHSCOPE_MODEL:qwen-turbo}
           temperature: 0.7
+        embedding:
+          model: ${DASHSCOPE_MODEL:qwen-turbo}
     zhipuai:
       api-key: ${ZHIPUAI_API_KEY}
     openai:
       api-key: dummy-key
+
+
+    vectorstore:
+      redis:
+        enabled: true
+        key-prefix: "spring-ai-index"
+  data:
+    redis:
+      host: localhost
+      port: 26379
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 1000ms
+
 
 management:
   endpoints:
